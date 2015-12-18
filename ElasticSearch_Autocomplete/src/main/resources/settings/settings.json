@@ -1,0 +1,36 @@
+{
+
+"settings":{
+        
+        "analysis":{
+            
+            "analyzer":{
+                
+                "apps_index":{
+                    "tokenizer":"keyword",
+                    "filter":["lowercase","substring"]
+                },
+                "apps_search":{
+                    
+                    "tokenizer":"keyword",
+                    "filter":["lowercase"]
+                }
+                
+            },
+        "filter":{
+            
+            "substring":{
+                
+                "type":"edge_ngram",
+                "min_gram":1,
+                "max_gram":20
+            }
+        }
+            
+        }
+        
+    }
+    
+    
+    
+}

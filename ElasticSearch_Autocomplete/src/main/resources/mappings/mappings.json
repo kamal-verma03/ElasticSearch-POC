@@ -1,0 +1,31 @@
+  {      "player":{
+            
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "index_analyzer":"apps_index",
+                    "search_analyzer":"apps_search"
+                },
+                
+                "team":{
+                    "type":"string"
+                },
+                
+                "playerType":{
+                    "type":"string"
+                },
+                "hundreds":{
+                    
+                    "type":"long"
+                },
+                
+                "wickets":{
+                    "type":"long"
+                }
+                
+            }
+            
+            
+            
+        }
+        }
