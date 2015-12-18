@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import com.elastic.autocomplete.helper.ElasticHelper;
 
-public class IndexTest {
+public class AddCompaniesTest {
 
 	@Test
 	public void testIndexContent() throws Exception {
-		InputStream is = IndexTest.class.getResourceAsStream("check.txt");
+		InputStream is = AddCompaniesTest.class.getResourceAsStream("companies-list.txt");
 		Assert.assertTrue(ElasticHelper.indexFileContent(is));
 	}
 }

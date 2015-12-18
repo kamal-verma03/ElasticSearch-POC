@@ -1,31 +1,39 @@
-  {      "player":{
-            
-            "properties":{
-                "name":{
-                    "type":"string",
-                    "index_analyzer":"apps_index",
-                    "search_analyzer":"apps_search"
-                },
-                
-                "team":{
-                    "type":"string"
-                },
-                
-                "playerType":{
-                    "type":"string"
-                },
-                "hundreds":{
-                    
-                    "type":"long"
-                },
-                
-                "wickets":{
-                    "type":"long"
-                }
-                
-            }
-            
-            
-            
+{
+  "mappings": {
+    "company": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "index_analyzer": "apps_index",
+          "search_analyzer": "apps_search"
         }
+      }
+    }
+  },
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "apps_index": {
+          "tokenizer": "keyword",
+          "filter": [
+            "lowercase",
+            "substring"
+          ]
+        },
+        "apps_search": {
+          "tokenizer": "keyword",
+          "filter": [
+            "lowercase"
+          ]
         }
+      },
+      "filter": {
+        "substring": {
+          "type": "edge_ngram",
+          "min_gram": 1,
+          "max_gram": 20
+        }
+      }
+    }
+  }
+}

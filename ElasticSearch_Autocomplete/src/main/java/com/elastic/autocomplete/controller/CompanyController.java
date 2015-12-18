@@ -31,11 +31,12 @@ public class CompanyController {
 			autocompleteList.add(company.getName());
 		}
 		long endTime = System.currentTimeMillis();
-		System.out.println(endTime - startTime);
+		System.out.print("Time took to get the response : ");
+		System.out.println(endTime - startTime + " milliseconds");
 		return autocompleteList;
 	}
 
-	@RequestMapping(value = "/autocomplete", method = RequestMethod.GET)
+	@RequestMapping(value = "/*", method = RequestMethod.GET)
 	public ModelAndView autocomplete() {
 
 		ModelAndView model = new ModelAndView("autocomplete");
@@ -49,16 +50,20 @@ public class CompanyController {
 		return model;
 
 	}
+	
+	// This method is used to check the reponse through some rest client (like Postman).
 
 	@RequestMapping(value = "/getAll/{name}")
 	public @ResponseBody
 	List<Company> getAll(@PathVariable("name") String name) {
 
 		long startTime = System.currentTimeMillis();
-		List<Company> list = service.getAllByName(name);
+		List<Company> comapanies = service.getAllByName(name);
 		long endTime = System.currentTimeMillis();
-		System.out.println(endTime - startTime);
-		return list;
+		System.out.print("Time took to get the response : ");
+		System.out.println(endTime - startTime + " milliseconds");
+	
+		return comapanies;
 	}
 
 }
